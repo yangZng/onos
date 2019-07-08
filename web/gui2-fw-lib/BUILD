@@ -188,7 +188,7 @@ genrule(
           " export PATH=$$ROOT/$$(dirname $${NPM}):$$PATH &&" +
           " npm -v > $$ROOT/$(location onos-gui2-npm-install.log) 2>&1 &&" +
           " cd web/gui2-fw-lib && " +
-          " npm $$NPM_ARGS install --no-cache >> $$ROOT/$(location onos-gui2-npm-install.log) 2>&1 &&" +
+          " npm $$NPM_ARGS install --registry=https://registry.npm.taobao.org --no-cache >> $$ROOT/$(location onos-gui2-npm-install.log) 2>&1 &&" +
           " jar Mcf $$ROOT/$(location onos-gui2-npm-install.jar) node_modules &&" +
           " touch $$ROOT/$(location onos-gui2-npm-install.log)",  # to get the log always as the 2nd file
     message = "NodeJS npm install",

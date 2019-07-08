@@ -111,7 +111,7 @@ genrule(
           " mkdir -p tools/gui &&" +
           " cd tools/gui &&" +
           " jar xf ../../$(location //tools/gui:tools-gui-gulp) &&" +
-          " $$NPM $$NPM_ARGS install  --no-cache --loglevel=error >npm-install.out 2>&1 &&" +
+          " $$NPM $$NPM_ARGS install --registry=https://registry.npm.taobao.org  --no-cache --loglevel=error >npm-install.out 2>&1 &&" +
           " find . -name package.json | while read pjson; do egrep -v '/execroot/' $$pjson > ptmp; mv ptmp $$pjson; done &&" +
           " find package.json gulpfile.babel.js node_modules gulp-tasks -type f -exec touch -t 201806280000 {} \; &&" +
           " jar Mcf $$ROOT/$@ package.json gulpfile.babel.js node_modules gulp-tasks",
@@ -143,7 +143,7 @@ genrule(
           " mkdir -p tools/gui && cd tools/gui &&" +
           " jar xf $$ROOT/$(location :_onos-gui-npm-install) &&" +
           " chmod a+x ./node_modules/gulp/bin/gulp.js &&" +
-          " $$ROOT/$$NPM $$NPM_ARGS run build --no-cache --loglevel=error >npm-build.out &&" +
+          " $$ROOT/$$NPM $$NPM_ARGS run build --no-cache --registry=https://registry.npm.taobao.org --loglevel=error >npm-build.out &&" +
           " cd ../../web/gui/src/main/webapp &&" +
           " find dist vendor data README.md _doc _dev app/fw app/*.css app/*.js app/*.txt -type f -exec touch -t 201806280000 {} \; &&" +
           " jar Mcf $$ROOT/$@ dist vendor data README.md _doc _dev app/fw app/*.css app/*.js app/*.txt)",
