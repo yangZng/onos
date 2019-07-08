@@ -23,7 +23,9 @@ import org.onosproject.rest.ApiDocService;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.io.ByteArrayInputStream;
@@ -55,6 +57,22 @@ public class ApiDocResource extends AbstractInjectionResource {
 
     @Context
     private UriInfo uriInfo;
+
+
+
+
+    /**
+     *  inter for test
+     * @return
+     */
+    @Path("/t")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getTest3() {
+        System.out.println(23213123);
+        return ok("").build();
+    }
+
 
     /**
      * Get all registered REST API docs.
