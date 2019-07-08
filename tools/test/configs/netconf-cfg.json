@@ -1,14 +1,14 @@
 {
   "devices": {
-    "netconf:192.168.56.104:830": {
+    "netconf:172.24.10.254:830": {
       "netconf": {
-        "ip": "192.168.56.104",
+        "ip": "172.24.10.254",
         "port": 830,
-        "username": "mininet",
-        "password": "mininet"
+        "username": "wgtest",
+        "password": "Ustcwg@2019"
       },
       "basic": {
-        "driver": "ovs-netconf"
+        "driver": "huawei"
       }
     }
   }

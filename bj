@@ -1,0 +1,89 @@
+
+3:23:47 PM
+yz 7/4/2019 3:23:47 PM
+ssh用户:wangguan Ustcwg@2019
+ssh地址是172.24.10.254
+
+
+无线网密码：Ustc@2019
+ssid:TP-LINK-WG TP-LINK-5G-WG
+
+
+
+虚拟机安装好后地址可以配置172.24.100.100-252
+esxi6.5虚拟机管理地址是:https://192.168.214.5:9443
+账户密码 root Ustc@2019
+交换机地址是192.168.214.5:10022 账户wangguan Ustcwg@2019
+虚拟配置的网关是172.24.100.254
+需要连接虚拟机端口联系我配置映射
+
+
+
+wgtest   Ustc@2019
+
+ustc
+
+
+# 1.先合并文件
+cat test.z* > testall.zip
+# 2.解压
+unzip testall.zip
+
+ssh连接
+ ssh -p 10022 admin@112.29.239.134
+
+上传文件
+scp -P 10022  /home/admin/dmp/EXPDAT01.DMP  admin@172.30.10.4:/home/admin/dmp
+
+#init dev
+~/.bash_profile
+1.3 启动karaf
+bazel run onos-local [-- [clean] [debug]]
+
+yz 7/4/2019 3:59:05 PM
+免密登录失效：karaf---root权限相关导致
+ssh -p 8101 karaf@localhost
+
+#use test
+ onos-netcfg  localhost /home/sdn/onos/tools/test/configs/netconf-cfg-old.json
+
+
+
+
+
+netconf test ep:
+
+1.west many session ,
+
+
+
+
+
+
+
+
+netconf ca:
+<HUAWEI>display netconf capability
+----------------------------------
+Capability         Scope   Version
+----------------------------------
+Base               public  1.0
+Writable-Running   public  1.0
+Candidate          public  1.0
+Confirmed Commit   public  1.0
+Distinct Startup   public  1.0
+Rollback on Error  public  1.0
+Sync               private 1.0
+Sync               private 1.1
+Sync               private 1.2
+Sync               private 1.3
+Exchange           private 1.0
+Exchange           private 1.2
+Active             private 1.0
+Action             private 1.0
+Discard Commit     private 1.0
+Execute CLI        private 1.0
+Update             private 1.0
+Commit-Description private 1.0
+Notification       public  1.0
+Interleave         public  1.0
