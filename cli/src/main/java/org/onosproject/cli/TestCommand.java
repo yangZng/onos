@@ -4,6 +4,10 @@ import com.google.common.annotations.Beta;
 import org.apache.karaf.shell.api.action.Argument;
 import org.apache.karaf.shell.api.action.Command;
 import org.apache.karaf.shell.api.action.lifecycle.Service;
+import org.onosproject.net.DeviceId;
+import org.onosproject.net.behaviour.ConfigGetter;
+import org.onosproject.net.driver.DriverHandler;
+import org.onosproject.net.driver.DriverService;
 import org.onosproject.ustc.UsalCommService;
 
 /**
@@ -35,8 +39,34 @@ public class TestCommand extends AbstractShellCommand{
         UsalCommService services = get(UsalCommService.class);
         services.test(uri);
 
+        // fixme to behavior
+
+        execute(uri);
+
+
+
     }
 
+
+    /**
+     * test NetconfCOntroller
+     * @param url
+     */
+
+    private void execute(String url){
+
+        DeviceId deviceId = DeviceId.deviceId(url);
+        DriverService service = get(DriverService.class);
+        DriverHandler handler = service.createHandler(deviceId);
+
+        ConfigGetter configGetter=handler.behaviour(ConfigGetter.class);
+            //impl by NetconfConfigGetter
+        configGetter.getConfiguration("startup");
+
+
+
+
+    }
 
 
 }
