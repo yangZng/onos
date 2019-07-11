@@ -8,7 +8,7 @@
         "password": "Ustcwg@2019"
       },
       "basic": {
-        "driver": "huawei"
+        "driver": "netconf"
       }
     }
   }

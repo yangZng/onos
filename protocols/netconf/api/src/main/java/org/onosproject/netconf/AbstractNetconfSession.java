@@ -166,6 +166,7 @@ public abstract class AbstractNetconfSession implements NetconfSession {
         return requestSync(rpc.toString());
     }
 
+    //NetconfSessionMinaImpl
     @Override
     public abstract String requestSync(String request) throws NetconfException;
 

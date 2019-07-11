@@ -108,7 +108,8 @@
             $scope.directTo = function () {
                 var curId = $location.path().replace('/', ''),
                     viewMap = $scope.onos['viewMap'],
-                    helpUrl = viewMap[curId];
+                    //helpUrl = viewMap[curId];
+                    helpUrl='http://www.gccloud.com/';
                 $window.open(helpUrl);
             };
 

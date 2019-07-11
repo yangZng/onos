@@ -36,8 +36,8 @@ public class TestCommand extends AbstractShellCommand{
     @Override
     protected void doExecute() {
         //fixme to core - common
-        UsalCommService services = get(UsalCommService.class);
-        services.test(uri);
+       // UsalCommService services = get(UsalCommService.class);
+       // services.test(uri);
 
         // fixme to behavior
 
@@ -56,12 +56,14 @@ public class TestCommand extends AbstractShellCommand{
     private void execute(String url){
 
         DeviceId deviceId = DeviceId.deviceId(url);
+        //DriverManager
         DriverService service = get(DriverService.class);
         DriverHandler handler = service.createHandler(deviceId);
-
+        //fixme important function
         ConfigGetter configGetter=handler.behaviour(ConfigGetter.class);
             //impl by NetconfConfigGetter
-        configGetter.getConfiguration("startup");
+        String var= configGetter.getConfiguration("startup");
+        print(var);
 
 
 
